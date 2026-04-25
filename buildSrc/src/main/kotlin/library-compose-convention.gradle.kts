@@ -1,6 +1,6 @@
 plugins {
     id("library-convention")
-    id("compose-options-convention")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {

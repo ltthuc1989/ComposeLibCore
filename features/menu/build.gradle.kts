@@ -1,7 +1,11 @@
 plugins {
     id(PluginId.COMPOSE_CONVENTION)
-    id(PluginId.KOTLIN_KAPT)
+    id(PluginId.KSP)
     id(PluginId.DAGGER_HILT)
+}
+
+android {
+    namespace = "com.dvm.menu"
 }
 
 dependencies {
@@ -22,11 +26,10 @@ dependencies {
     implementation(libs.compose.constraintLayout)
     implementation(libs.compose.viewModel)
     implementation(libs.compose.coil)
-    implementation(libs.accompanist.insets)
     implementation(libs.compose.navigationHilt)
 
     implementation(libs.lifecycle.livedata)
 
     implementation(libs.hilt.library)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 }

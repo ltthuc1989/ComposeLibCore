@@ -38,10 +38,12 @@ import com.dvm.ui.components.EmptyPlaceholder
 import com.dvm.ui.components.verticalGradient
 import com.dvm.ui.themes.DecorColors
 import com.dvm.utils.DrawerItem
-import com.google.accompanist.insets.navigationBarsPadding
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import kotlinx.coroutines.launch
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
 
 @OptIn(ExperimentalComposeApi::class)
 @Composable
@@ -67,7 +69,7 @@ internal fun NotificationScreen(
                 .fillMaxSize()
                 .verticalGradient(color.color.copy(alpha = 0.15f))
         ) {
-            Spacer(modifier = Modifier.statusBarsHeight())
+            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             DefaultAppBar(
                 title = { Text(stringResource(CoreR.string.notification_appbar_title)) },
                 navigationIcon = {

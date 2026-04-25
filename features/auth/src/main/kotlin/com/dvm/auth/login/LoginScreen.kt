@@ -39,9 +39,12 @@ import com.dvm.ui.components.DefaultAppBar
 import com.dvm.ui.components.EditTextField
 import com.dvm.ui.components.ProgressButton
 import com.dvm.utils.DrawerItem
-import com.google.accompanist.insets.navigationBarsWithImePadding
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.navigationBarsPadding
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -61,7 +64,7 @@ internal fun LoginScreen(
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Column {
-                Spacer(Modifier.statusBarsHeight())
+                Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
                 DefaultAppBar(
                     title = { Text(stringResource(CoreR.string.login_appbar_title)) },
                     navigationIcon = {
@@ -145,7 +148,7 @@ internal fun LoginScreen(
                 ) {
                     Text(text = stringResource(CoreR.string.login_button_restore_password))
                 }
-                Spacer(Modifier.navigationBarsWithImePadding())
+                Spacer(Modifier.imePadding().navigationBarsPadding())
             }
         }
     }

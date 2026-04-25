@@ -23,8 +23,10 @@ import com.dvm.ui.components.AppBarIconBack
 import com.dvm.ui.components.DefaultAppBar
 import com.dvm.ui.components.LoadingScrim
 import com.dvm.utils.DrawerItem
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
 
 @Composable
 internal fun PasswordRestoreScreen(
@@ -42,7 +44,7 @@ internal fun PasswordRestoreScreen(
             Modifier
                 .fillMaxSize()
         ) {
-            Spacer(modifier = Modifier.statusBarsHeight())
+            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             DefaultAppBar(
                 title = { Text(stringResource(CoreR.string.password_restoration_appbar_title)) },
                 navigationIcon = {

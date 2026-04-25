@@ -68,9 +68,12 @@ import com.dvm.ui.components.verticalGradient
 import com.dvm.ui.themes.DecorColors
 import com.dvm.utils.DrawerItem
 import com.dvm.utils.asString
-import com.google.accompanist.insets.navigationBarsHeight
-import com.google.accompanist.insets.statusBarsHeight
-import com.google.accompanist.insets.statusBarsPadding
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
+import androidx.compose.foundation.layout.windowInsetsTopHeight
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.statusBars
 
 private val AppBarHeight = 56.dp
 
@@ -134,7 +137,7 @@ internal fun CategoryScreen(
             val subcategories = state.subcategories
             if (subcategories.isNotEmpty()) {
                 Column {
-                    Spacer(Modifier.statusBarsHeight())
+                    Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
                     Spacer(Modifier.height(AppBarHeight))
                     val titleHeightDp = with(LocalDensity.current) { titleHeight.value.toDp() }
                     Spacer(Modifier.height(titleHeightDp))
@@ -225,7 +228,7 @@ private fun DishList(
                         }
                     }
                 }
-                item { Spacer(Modifier.navigationBarsHeight()) }
+                item { Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars)) }
             }
         }
     }
@@ -237,7 +240,7 @@ private fun DishListHeader(
     selectedColor: Color,
     titleHeight: MutableState<Int>
 ) {
-    Spacer(Modifier.statusBarsHeight())
+    Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
     Spacer(Modifier.height(AppBarHeight))
     state.title?.let { title ->
         val context = LocalContext.current

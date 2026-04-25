@@ -2,6 +2,10 @@ plugins {
     id(PluginId.COMPOSE_CONVENTION)
 }
 
+android {
+    namespace = "com.dvm.utils"
+}
+
 dependencies {
     implementation(projects.core.ui)
 

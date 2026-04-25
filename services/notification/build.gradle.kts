@@ -1,7 +1,11 @@
 plugins {
     id(PluginId.LIBRARY_CONVENTION)
-    id(PluginId.KOTLIN_KAPT)
+    id(PluginId.KSP)
     id(PluginId.DAGGER_HILT)
+}
+
+android {
+    namespace = "com.dvm.notification"
 }
 
 dependencies {
@@ -15,7 +19,7 @@ dependencies {
     implementation(libs.coroutines)
 
     implementation(libs.hilt.library)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging)

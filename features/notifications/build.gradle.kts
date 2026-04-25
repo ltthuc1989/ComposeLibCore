@@ -1,8 +1,12 @@
 plugins {
     id(PluginId.COMPOSE_CONVENTION)
-    id(PluginId.KOTLIN_KAPT)
+    id(PluginId.KSP)
     id(PluginId.DAGGER_HILT)
     id(PluginId.KOTLIN_PARCELIZE)
+}
+
+android {
+    namespace = "com.dvm.notifications"
 }
 
 dependencies {
@@ -15,19 +19,19 @@ dependencies {
 
     implementation(libs.android.core)
     implementation(libs.android.appcompat)
+    implementation(libs.kotlin.parcelize.runtime)
 
     implementation(libs.bundles.compose)
     implementation(libs.compose.icons)
     implementation(libs.compose.constraintLayout)
     implementation(libs.compose.viewModel)
     implementation(libs.compose.coil)
-    implementation(libs.accompanist.insets)
     implementation(libs.compose.navigationHilt)
 
     implementation(libs.lifecycle.viewModel)
 
     implementation(libs.hilt.library)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging)

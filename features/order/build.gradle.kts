@@ -3,18 +3,21 @@ import java.util.Properties
 
 val properties = Properties()
 val propertiesFile: File = rootProject.file("apikey.properties")
-properties.load(FileInputStream(propertiesFile))
+if (propertiesFile.exists()) {
+    properties.load(FileInputStream(propertiesFile))
+}
 
 plugins {
     id(PluginId.COMPOSE_CONVENTION)
-    id(PluginId.KOTLIN_KAPT)
+    id(PluginId.KSP)
     id(PluginId.DAGGER_HILT)
-    id(PluginId.KOTLIN_PARCELIZE)
 }
 
 android {
+    namespace = "com.dvm.order"
+
     defaultConfig {
-        resValue("string", "google_key", properties.getProperty("GOOGLE_API_KEY"))
+        resValue("string", "google_key", properties.getProperty("GOOGLE_API_KEY") ?: "")
     }
     buildFeatures {
         resValues = true
@@ -41,17 +44,12 @@ dependencies {
     implementation(libs.compose.coil)
     implementation(libs.compose.navigationHilt)
 
-    implementation(libs.accompanist.insets)
-    implementation(libs.accompanist.pager)
-    implementation(libs.accompanist.pagerIndicators)
-
     implementation(libs.lifecycle.livedata)
     implementation(libs.lifecycle.viewModel)
     implementation(libs.lifecycle.runtime)
-    kapt(libs.lifecycle.compiler)
 
     implementation(libs.hilt.library)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.navigation.ui)
 

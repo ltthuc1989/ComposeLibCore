@@ -155,7 +155,8 @@ internal class MapViewModel @Inject constructor(
         val locationAddress = try {
             Geocoder(context)
                 .getFromLocation(latitude, longitude, 1)
-                .first()
+                ?.firstOrNull()
+                ?: return emptyList()
         } catch (exception: CancellationException) {
             throw CancellationException()
         } catch (exception: Exception) {

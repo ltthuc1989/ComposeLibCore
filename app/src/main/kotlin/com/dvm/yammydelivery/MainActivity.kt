@@ -10,7 +10,6 @@ import androidx.navigation.compose.rememberNavController
 import com.dvm.navigation.api.model.Destination
 import com.dvm.notification.NotificationService.Companion.NOTIFICATION_EXTRA
 import com.dvm.ui.YammyDeliveryScreen
-import com.google.accompanist.insets.ProvideWindowInsets
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +22,7 @@ internal class MainActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             YammyDeliveryScreen(this) {
-                ProvideWindowInsets(windowInsetsAnimationsEnabled = true) {
+                
                     val navController = rememberNavController()
                     viewModel.navController = navController
                     val startDestination = if (fromNotification(intent)) {
@@ -35,7 +34,7 @@ internal class MainActivity : AppCompatActivity() {
                         navController = navController,
                         startDestination = startDestination
                     )
-                }
+                
             }
         }
     }

@@ -1,7 +1,11 @@
 plugins {
     id(PluginId.LIBRARY_CONVENTION)
-    id(PluginId.KOTLIN_KAPT)
+    id(PluginId.KSP)
     id(PluginId.DAGGER_HILT)
+}
+
+android {
+    namespace = "com.dvm.network"
 }
 
 dependencies {
@@ -18,5 +22,5 @@ dependencies {
     implementation(libs.loggingInterceptor)
 
     implementation(libs.hilt.library)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 }

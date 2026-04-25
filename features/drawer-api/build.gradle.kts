@@ -1,6 +1,9 @@
 plugins {
     id(PluginId.COMPOSE_CONVENTION)
-    id(PluginId.KOTLIN_KAPT)
+}
+
+android {
+    namespace = "com.dvm.drawer_api"
 }
 
 dependencies {

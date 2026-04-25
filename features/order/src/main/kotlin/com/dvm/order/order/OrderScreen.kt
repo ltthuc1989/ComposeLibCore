@@ -37,8 +37,10 @@ import com.dvm.ui.components.Image
 import com.dvm.ui.components.LoadingScrim
 import com.dvm.utils.DrawerItem
 import com.dvm.utils.extensions.format
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
 
 @Composable
 internal fun OrderScreen(
@@ -48,7 +50,7 @@ internal fun OrderScreen(
 
     Drawer(selected = DrawerItem.ORDERS) {
         Column(modifier = Modifier.fillMaxSize()) {
-            Spacer(modifier = Modifier.statusBarsHeight())
+            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
 
             state.order?.let { order ->
                 DefaultAppBar(

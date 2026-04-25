@@ -1,19 +1,48 @@
-import com.android.build.gradle.BaseExtension
+import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.LibraryExtension
 import io.gitlab.arturbosch.detekt.Detekt
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-configure<BaseExtension> {
+plugins {
+    id("io.gitlab.arturbosch.detekt")
+}
 
-    plugins {
-        id(PluginId.KOTLIN_ANDROID)
-        id(PluginId.DETEKT)
+plugins.withId("com.android.application") {
+    extensions.configure<ApplicationExtension> {
+        compileSdk = 35
+        defaultConfig {
+            minSdk = 24
+            targetSdk = 35
+        }
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
+        }
     }
+}
 
-    compileSdkVersion(31)
+plugins.withId("com.android.library") {
+    extensions.configure<LibraryExtension> {
+        compileSdk = 35
+        defaultConfig {
+            minSdk = 24
+        }
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
+        }
+    }
+}
 
-    defaultConfig {
-        minSdk = 23
-        targetSdk = 31
+tasks.withType<KotlinCompile>().configureEach {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
+        freeCompilerArgs.addAll(
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-opt-in=kotlinx.coroutines.FlowPreview",
+            "-opt-in=kotlin.RequiresOptIn"
+        )
     }
 }
 
@@ -25,15 +54,4 @@ tasks.register<Detekt>("detektAll") {
     include("**/*.kts")
     exclude("**/resources/**")
     exclude("**/build/**")
-}
-
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions {
-        freeCompilerArgs = listOf(
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xopt-in=kotlinx.coroutines.FlowPreview",
-            "-Xopt-in=kotlin.Experimental",
-            "-Xopt-in=kotlin.RequiresOptIn"
-        )
-    }
 }

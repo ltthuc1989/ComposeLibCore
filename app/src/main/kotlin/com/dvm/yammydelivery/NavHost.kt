@@ -9,7 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navArgument
+import androidx.navigation.navArgument
 import com.dvm.auth.api.Login
 import com.dvm.auth.api.PasswordRestoration
 import com.dvm.auth.api.Registration

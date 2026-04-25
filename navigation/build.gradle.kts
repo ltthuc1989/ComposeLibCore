@@ -1,8 +1,11 @@
 plugins {
     id(PluginId.LIBRARY_CONVENTION)
-    id(PluginId.KOTLIN_KAPT)
+    id(PluginId.KSP)
     id(PluginId.DAGGER_HILT)
-    id(PluginId.KOTLIN_PARCELIZE)
+}
+
+android {
+    namespace = "com.dvm.navigation"
 }
 
 dependencies {
@@ -10,5 +13,5 @@ dependencies {
     implementation(libs.coroutines)
 
     implementation(libs.hilt.library)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 }

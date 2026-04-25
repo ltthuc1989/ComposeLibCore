@@ -53,7 +53,7 @@ import com.dvm.ui.components.AlertButton
 import com.dvm.ui.themes.DecorColors
 import com.dvm.utils.BackPressHandler
 import com.dvm.utils.DrawerItem
-import com.google.accompanist.insets.navigationBarsPadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import kotlinx.coroutines.launch
 import com.dvm.ui.R as CoreR
 

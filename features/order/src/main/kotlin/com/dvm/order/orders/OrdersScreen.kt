@@ -44,16 +44,15 @@ import com.dvm.ui.components.verticalGradient
 import com.dvm.ui.themes.DecorColors
 import com.dvm.utils.DrawerItem
 import com.dvm.utils.extensions.format
-import com.google.accompanist.insets.navigationBarsPadding
-import com.google.accompanist.insets.statusBarsHeight
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.pagerTabIndicatorOffset
-import com.google.accompanist.pager.rememberPagerState
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import kotlinx.coroutines.launch
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 internal fun OrdersScreen(
     viewModel: OrdersViewModel = hiltViewModel()
@@ -77,7 +76,7 @@ internal fun OrdersScreen(
                 .fillMaxSize()
                 .verticalGradient(color.color.copy(alpha = 0.15f))
         ) {
-            Spacer(modifier = Modifier.statusBarsHeight())
+            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             DefaultAppBar(
                 title = { Text(stringResource(CoreR.string.orders_appbar_title)) },
                 navigationIcon = {
@@ -87,20 +86,12 @@ internal fun OrdersScreen(
                 },
             )
 
-            val pagerState = rememberPagerState(pageCount = 2)
+            val pagerState = rememberPagerState(pageCount = { 2 })
 
             TabRow(
-                selectedTabIndex = state.status.ordinal,
+                selectedTabIndex = pagerState.currentPage,
                 backgroundColor = MaterialTheme.colors.surface,
                 contentColor = contentColorFor(MaterialTheme.colors.surface),
-                indicator = { tabPositions ->
-                    CompositionLocalProvider(LocalContentColor provides MaterialTheme.colors.primary) {
-                        TabRowDefaults.Indicator(
-                            Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
-                        )
-                    }
-
-                }
             ) {
                 Tab(
                     text = { Text(stringResource(CoreR.string.orders_tab_actual)) },
@@ -123,7 +114,7 @@ internal fun OrdersScreen(
                     },
                 )
             }
-            HorizontalPager(pagerState) {
+            HorizontalPager(state = pagerState) { page ->
                 if (state.empty) {
                     EmptyPlaceholder(
                         resId = com.dvm.ui.R.raw.empty_image,

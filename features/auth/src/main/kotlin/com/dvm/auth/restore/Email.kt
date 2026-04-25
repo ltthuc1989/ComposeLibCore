@@ -17,8 +17,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.dvm.ui.components.EditTextField
-import com.google.accompanist.insets.navigationBarsWithImePadding
+import androidx.compose.foundation.layout.imePadding
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.navigationBarsPadding
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -49,7 +50,7 @@ internal fun Email(
         enabled = email.isNotEmpty(),
         modifier = Modifier
             .fillMaxWidth()
-            .navigationBarsWithImePadding(),
+            .imePadding().navigationBarsPadding(),
         onClick = {
             keyboardController?.hide()
             onSend()

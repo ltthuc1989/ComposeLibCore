@@ -36,9 +36,12 @@ import com.dvm.ui.components.DefaultAppBar
 import com.dvm.ui.components.EditTextField
 import com.dvm.ui.components.ProgressButton
 import com.dvm.utils.DrawerItem
-import com.google.accompanist.insets.navigationBarsWithImePadding
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.navigationBarsPadding
 
 @Composable
 internal fun RegisterScreen(
@@ -53,7 +56,7 @@ internal fun RegisterScreen(
                 .padding(15.dp)
                 .verticalScroll(rememberScrollState())
         ) {
-            Spacer(Modifier.statusBarsHeight())
+            Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             DefaultAppBar(
                 title = { Text(stringResource(CoreR.string.registration_appbar_title)) },
                 navigationIcon = {
@@ -167,7 +170,7 @@ internal fun RegisterScreen(
                     onClick = { viewModel.dispatch(RegisterEvent.Login) },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .navigationBarsWithImePadding()
+                        .imePadding().navigationBarsPadding()
                 ) {
                     Text(text = stringResource(CoreR.string.registration_button_login))
                 }

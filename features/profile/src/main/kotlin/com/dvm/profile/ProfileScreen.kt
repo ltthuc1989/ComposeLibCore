@@ -50,10 +50,13 @@ import com.dvm.ui.components.DefaultAppBar
 import com.dvm.ui.components.EditTextField
 import com.dvm.ui.components.ProgressButton
 import com.dvm.utils.DrawerItem
-import com.google.accompanist.insets.navigationBarsWithImePadding
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import kotlinx.coroutines.launch
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.navigationBarsPadding
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -75,7 +78,7 @@ internal fun ProfileScreen(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
-            Spacer(Modifier.statusBarsHeight())
+            Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             DefaultAppBar(
                 title = { Text(stringResource(CoreR.string.profile_appbar_title)) },
                 navigationIcon = {
@@ -165,7 +168,7 @@ internal fun ProfileScreen(
                 val configuration = LocalConfiguration.current
 
                 val modifier = when (configuration.orientation) {
-                    Configuration.ORIENTATION_PORTRAIT -> Modifier.navigationBarsWithImePadding()
+                    Configuration.ORIENTATION_PORTRAIT -> Modifier.imePadding().navigationBarsPadding()
                     else -> Modifier
                 }
 

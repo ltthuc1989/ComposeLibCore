@@ -43,9 +43,12 @@ import com.dvm.ui.components.AppBarIconBack
 import com.dvm.ui.components.DefaultAppBar
 import com.dvm.ui.components.LoadingScrim
 import com.dvm.utils.DrawerItem
-import com.google.accompanist.insets.navigationBarsWithImePadding
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.navigationBarsPadding
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -61,7 +64,7 @@ internal fun OrderingScreen(
 
     Drawer(selected = DrawerItem.ORDERS) {
         Column(Modifier.fillMaxSize()) {
-            Spacer(Modifier.statusBarsHeight())
+            Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             DefaultAppBar(
                 title = { Text(stringResource(CoreR.string.ordering_appbar_title)) },
                 navigationIcon = {
@@ -224,7 +227,7 @@ internal fun OrderingScreen(
                 modifier = Modifier
                     .padding(20.dp)
                     .fillMaxWidth()
-                    .navigationBarsWithImePadding(),
+                    .imePadding().navigationBarsPadding(),
                 onClick = { viewModel.dispatch(OrderingEvent.MakeOrder(fields)) }
             ) {
                 Text(stringResource(CoreR.string.ordering_button_create_order))

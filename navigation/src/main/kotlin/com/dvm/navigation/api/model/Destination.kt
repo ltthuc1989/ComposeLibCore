@@ -1,59 +1,41 @@
 package com.dvm.navigation.api.model
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import java.io.Serializable
 
-sealed class Destination(val route: String = "") : Parcelable {
+sealed class Destination(val route: String = "") : Serializable {
 
-    @Parcelize
     object Splash : Destination("splash")
 
-    @Parcelize
     object Main : Destination("main")
 
-    @Parcelize
     object Menu : Destination("menu")
 
-    @Parcelize
     object Search : Destination("search")
 
-    @Parcelize
     object Favorite : Destination("favorite")
 
-    @Parcelize
     object Orders : Destination("orders")
 
-    @Parcelize
     object Ordering : Destination("ordering")
 
-    @Parcelize
     object Registration : Destination("registration")
 
-    @Parcelize
     object FinishRegister : Destination()
 
-    @Parcelize
     object PasswordRestoration : Destination("restoration")
 
-    @Parcelize
     object Profile : Destination("profile")
 
-    @Parcelize
     object Cart : Destination("cart")
 
-    @Parcelize
     object Notification : Destination("notification")
 
-    @Parcelize
     object Back : Destination()
 
-    @Parcelize
     object LoginTarget : Destination()
 
-    @Parcelize
     data class BackToOrdering(val address: String) : Destination()
 
-    @Parcelize
     class Map : Destination(ROUTE) {
         companion object {
             const val ROUTE = "map"
@@ -61,7 +43,6 @@ sealed class Destination(val route: String = "") : Parcelable {
         }
     }
 
-    @Parcelize
     data class Login(
         val targetDestination: Destination? = null
     ) : Destination(ROUTE) {
@@ -70,7 +51,6 @@ sealed class Destination(val route: String = "") : Parcelable {
         }
     }
 
-    @Parcelize
     data class Dish(
         val dishId: String
     ) : Destination(ROUTE) {
@@ -82,7 +62,6 @@ sealed class Destination(val route: String = "") : Parcelable {
         }
     }
 
-    @Parcelize
     data class Order(
         val orderId: String
     ) : Destination(ROUTE) {
@@ -94,7 +73,6 @@ sealed class Destination(val route: String = "") : Parcelable {
         }
     }
 
-    @Parcelize
     data class Category(
         val categoryId: String,
         val subcategoryId: String? = null

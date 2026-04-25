@@ -12,9 +12,11 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Divider
@@ -49,10 +51,12 @@ import com.dvm.menu.menu.model.MenuItem
 import com.dvm.ui.components.AppBarIconMenu
 import com.dvm.ui.themes.DecorColors
 import com.dvm.utils.DrawerItem
-import com.google.accompanist.insets.navigationBarsPadding
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import kotlinx.coroutines.launch
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
 
 @Composable
 internal fun MenuScreen(
@@ -68,7 +72,7 @@ internal fun MenuScreen(
         selected = DrawerItem.MENU
     ) {
         Column {
-            Spacer(Modifier.statusBarsHeight())
+            Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             TopAppBar(
                 title = { Text(stringResource(CoreR.string.menu_appbar_title)) },
                 navigationIcon = {
@@ -117,7 +121,7 @@ private fun MenuContent(
     }
 
     LazyVerticalGrid(
-        cells = GridCells.Fixed(rows),
+        columns = GridCells.Fixed(rows),
         contentPadding = PaddingValues(
             top = 20.dp,
             start = 10.dp,
@@ -128,7 +132,7 @@ private fun MenuContent(
             MenuItem(
                 index = index,
                 item = item,
-                modifier = Modifier.fillParentMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 onItemClick = onItemClick
             )
         }

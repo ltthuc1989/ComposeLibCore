@@ -51,10 +51,13 @@ import com.dvm.ui.components.verticalGradient
 import com.dvm.ui.themes.DecorColors
 import com.dvm.utils.DrawerItem
 import com.dvm.utils.asString
-import com.google.accompanist.insets.navigationBarsHeight
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import kotlinx.coroutines.launch
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.statusBars
 
 @Composable
 internal fun MainScreen(
@@ -72,7 +75,7 @@ internal fun MainScreen(
     ) {
 
         Column(Modifier.fillMaxSize()) {
-            Spacer(modifier = Modifier.statusBarsHeight())
+            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             DefaultAppBar(
                 navigationIcon = {
                     AppBarIconMenu {
@@ -174,7 +177,7 @@ internal fun MainScreen(
                         }
                     }
                     Spacer(modifier = Modifier.height(20.dp))
-                    Spacer(modifier = Modifier.navigationBarsHeight())
+                    Spacer(modifier = Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))
                 }
             }
         }

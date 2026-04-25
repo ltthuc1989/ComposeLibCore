@@ -1,13 +1,15 @@
 plugins {
     id(PluginId.ANDROID_APPLICATION)
     id(PluginId.COMMON_CONVENTION)
-    id(PluginId.COMPOSE_OPTIONS_CONVENTION)
-    id(PluginId.KOTLIN_KAPT)
+    id(PluginId.KOTLIN_COMPOSE)
+    id(PluginId.KSP)
     id(PluginId.DAGGER_HILT)
     id(PluginId.GOOGLE_SERVICES)
 }
 
 android {
+    namespace = "com.dvm.yammydelivery"
+
     defaultConfig {
         applicationId = "com.dvm.yammydelivery"
         versionCode = 1
@@ -51,10 +53,9 @@ dependencies {
 
     implementation(libs.bundles.compose)
     implementation(libs.compose.navigation)
-    implementation(libs.accompanist.insets)
 
     implementation(libs.hilt.library)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.retrofit)
 

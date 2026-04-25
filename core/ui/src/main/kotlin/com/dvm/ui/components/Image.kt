@@ -15,8 +15,8 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import coil.compose.ImagePainter
-import coil.compose.rememberImagePainter
+import coil.compose.AsyncImagePainter
+import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun Image(
@@ -25,7 +25,7 @@ fun Image(
     loading: @Composable () -> Unit = { Loading() },
     error: @Composable () -> Unit = { ErrorImage() }
 ) {
-    val painter = rememberImagePainter(data)
+    val painter = rememberAsyncImagePainter(data)
 
     Box(modifier.fillMaxSize()) {
         androidx.compose.foundation.Image(
@@ -36,8 +36,8 @@ fun Image(
         )
 
         when (painter.state) {
-            is ImagePainter.State.Loading -> loading()
-            is ImagePainter.State.Error -> error()
+            is AsyncImagePainter.State.Loading -> loading()
+            is AsyncImagePainter.State.Error -> error()
             else -> { /* ignore */ }
         }
     }

@@ -50,10 +50,12 @@ import com.dvm.ui.components.EmptyPlaceholder
 import com.dvm.ui.components.Image
 import com.dvm.ui.components.LoadingScrim
 import com.dvm.utils.DrawerItem
-import com.google.accompanist.insets.navigationBarsPadding
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import kotlinx.coroutines.launch
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
 
 @Composable
 internal fun CartScreen(
@@ -73,7 +75,7 @@ internal fun CartScreen(
         selected = DrawerItem.CART
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
-            Spacer(modifier = Modifier.statusBarsHeight())
+            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             DefaultAppBar(
                 title = {
                     Text(stringResource(CoreR.string.cart_appbar_title))

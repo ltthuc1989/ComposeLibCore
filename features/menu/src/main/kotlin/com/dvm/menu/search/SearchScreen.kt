@@ -14,11 +14,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.Card
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Divider
@@ -58,9 +58,11 @@ import com.dvm.ui.components.verticalGradient
 import com.dvm.ui.themes.DecorColors
 import com.dvm.utils.DrawerItem
 import com.dvm.utils.asString
-import com.google.accompanist.insets.navigationBarsPadding
-import com.google.accompanist.insets.statusBarsHeight
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import com.dvm.ui.R as CoreR
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
 
 @Composable
 internal fun SearchScreen(
@@ -73,7 +75,7 @@ internal fun SearchScreen(
     Drawer(selected = DrawerItem.MENU) {
 
         Column(Modifier.fillMaxSize()) {
-            Spacer(modifier = Modifier.statusBarsHeight())
+            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
             SearchField(
                 query = state.query,
                 onBackClick = {
@@ -228,7 +230,7 @@ private fun SearchResult(
     }
 
     LazyVerticalGrid(
-        cells = GridCells.Fixed(rows),
+        columns = GridCells.Fixed(rows),
         modifier = Modifier.padding(horizontal = 5.dp),
     ) {
         items(state.categories) { category ->

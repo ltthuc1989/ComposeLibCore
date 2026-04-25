@@ -2,7 +2,6 @@ package com.dvm.database.api.models
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import androidx.room.ForeignKey.CASCADE
 
 @Entity(
     tableName = "order_item",
@@ -12,7 +11,7 @@ import androidx.room.ForeignKey.CASCADE
             entity = Order::class,
             parentColumns = ["id"],
             childColumns = ["orderId"],
-            onDelete = CASCADE
+            onDelete = ForeignKey.CASCADE
         )
     ]
 )

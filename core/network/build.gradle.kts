@@ -1,11 +1,16 @@
 plugins {
-    id(PluginId.LIBRARY_CONVENTION)
-    id(PluginId.KSP)
-    id(PluginId.DAGGER_HILT)
+    id("composetemplate.android.library")
+    id("composetemplate.android.hilt")
+    id("composetemplate.android.retrofit")
 }
 
 android {
-    namespace = "com.dvm.network"
+    namespace = "com.ltthuc.network"
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
@@ -13,14 +18,7 @@ dependencies {
     implementation(projects.core.datastore)
 
     implementation(libs.android.core)
-
     implementation(libs.coroutines)
-
-    implementation(libs.retrofit)
-    implementation(libs.gsonConverter)
-    implementation(libs.gson)
-    implementation(libs.loggingInterceptor)
-
-    implementation(libs.hilt.library)
-    ksp(libs.hilt.compiler)
 }
+
+apply(from = "$rootDir/scripts/publish-lib.gradle.kts")

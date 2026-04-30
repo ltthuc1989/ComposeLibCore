@@ -1,16 +1,19 @@
 plugins {
-    id(PluginId.COMPOSE_CONVENTION)
+    id("composetemplate.kotlin.multiplatform.library")
 }
 
-android {
-    namespace = "com.dvm.utils"
-}
+@Suppress("UnstableApiUsage")
+kotlin {
+    android {
+        namespace = "com.ltthuc.utils"
+        compileSdk = 35
+        minSdk = 24
+    }
 
-dependencies {
-    implementation(projects.core.ui)
-
-    implementation(libs.android.core)
-
-    implementation(libs.bundles.compose)
-    implementation(libs.compose.navigation)
+    sourceSets {
+        androidMain.dependencies {
+            implementation(libs.android.core)
+            implementation(libs.timber)
+        }
+    }
 }

@@ -1,11 +1,15 @@
 plugins {
-    id(PluginId.LIBRARY_CONVENTION)
-    id(PluginId.KSP)
-    id(PluginId.DAGGER_HILT)
+    id("composetemplate.android.library")
+    id("composetemplate.android.hilt")
 }
 
 android {
-    namespace = "com.dvm.preferences"
+    namespace = "com.ltthuc.preferences"
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
@@ -13,7 +17,6 @@ dependencies {
 
     implementation(libs.android.core)
     implementation(libs.datastore)
-
-    implementation(libs.hilt.library)
-    ksp(libs.hilt.compiler)
 }
+
+apply(from = "$rootDir/scripts/publish-lib.gradle.kts")

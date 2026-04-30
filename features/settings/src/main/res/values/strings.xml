@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_upgrade">Upgrade to Pro</string>
+    <string name="settings_remove_ads">Remove Ads</string>
+    <string name="settings_restore_purchase">Restore Purchase</string>
+    <string name="settings_upgrade_footer">Remove ads and support the development of this app</string>
+    <string name="settings_section_more_apps">More Apps</string>
+    <string name="settings_section_about">About &amp; Support</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_suggest_feedback">Suggest &amp; Feedback</string>
+    <string name="settings_rate_on_store">Rate on App Store</string>
+    <string name="settings_privacy">Privacy</string>
+</resources>

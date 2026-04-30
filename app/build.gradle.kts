@@ -1,23 +1,22 @@
 plugins {
-    id(PluginId.ANDROID_APPLICATION)
-    id(PluginId.COMMON_CONVENTION)
-    id(PluginId.KOTLIN_COMPOSE)
-    id(PluginId.KSP)
-    id(PluginId.DAGGER_HILT)
-    id(PluginId.GOOGLE_SERVICES)
+    id("composetemplate.android.application")
+    id("composetemplate.android.hilt")
+    id("composetemplate.android.firebase")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
-    namespace = "com.dvm.yammydelivery"
+    namespace = "com.trithuc.app"
 
     defaultConfig {
-        applicationId = "com.dvm.yammydelivery"
+        applicationId = "com.trithuc.app"
         versionCode = 1
         versionName = "1.0"
     }
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     buildTypes {
@@ -29,38 +28,35 @@ android {
 }
 
 dependencies {
-    implementation(projects.core.ui)
-    implementation(projects.core.utils)
-    implementation(projects.core.network)
+    implementation(libs.template.ui)
+    implementation(libs.template.utils)
+    implementation(libs.template.network)
+    implementation(libs.template.datastore)
+    implementation(libs.template.ads)
+    implementation(libs.template.billing)
+    implementation(libs.template.navigation)
     implementation(projects.core.database)
-    implementation(projects.core.datastore)
-    implementation(projects.features.menu)
-    implementation(projects.features.dish)
-    implementation(projects.features.drawer)
-    implementation(projects.features.cart)
-    implementation(projects.features.order)
-    implementation(projects.features.auth)
-    implementation(projects.features.profile)
     implementation(projects.features.splash)
-    implementation(projects.features.notifications)
-    implementation(projects.services.notification)
-    implementation(projects.services.update)
-    implementation(projects.navigation)
+    implementation(projects.features.home)
+    implementation(projects.features.settings)
+    implementation(projects.features.testcomponent)
 
     implementation(libs.android.core)
     implementation(libs.android.appcompat)
     implementation(libs.android.material)
+    implementation(libs.android.activityCompose)
+    implementation(libs.android.splashScreen)
 
     implementation(libs.bundles.compose)
     implementation(libs.compose.navigation)
+    implementation(libs.compose.viewModel)
+    implementation(libs.compose.navigationHilt)
+    implementation(libs.compose.iconsExtended)
+    implementation(libs.google.ads)
 
-    implementation(libs.hilt.library)
-    ksp(libs.hilt.compiler)
+    implementation(libs.lifecycle.runtime)
 
-    implementation(libs.retrofit)
-
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.messaging)
+    implementation(libs.timber)
 
     debugImplementation(libs.leakCanary)
 }

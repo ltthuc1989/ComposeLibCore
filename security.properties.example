@@ -1,0 +1,16 @@
+# API endpoints
+API_SERVICE_URL_DEV=https://api.dev.example.com/
+API_SERVICE_URL_PROD=https://api.example.com/
+API_TOKEN=
+
+# AdMob (use Google test IDs by default, override for release)
+ADS_ENABLED=false
+ADS_APPLICATION_ID=ca-app-pub-3940256099942544~3347511713
+ADS_BANNER_ID=ca-app-pub-3940256099942544/6300978111
+ADS_INTERSTITIAL_ID=ca-app-pub-3940256099942544/1033173712
+ADS_REWARDED_ID=ca-app-pub-3940256099942544/5224354917
+
+# Google Play Billing
+LICENSE_KEY=
+PRODUCT_IDS=
+SUBSCRIPTION_IDS=

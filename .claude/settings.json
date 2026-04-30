@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew compileDebugKotlin)",
+      "Bash(xargs ls *)",
+      "Read(//Users/ltthuc1989/AndroidStudioProjects/AppTemplate/**)",
+      "Read(//Users/ltthuc1989/AndroidStudioProjects/AppTemplate/gradle/**)",
+      "Read(//Users/ltthuc1989/.claude/**)",
+      "Bash(curl -sI https://github.com/aldefy/compose-skill)",
+      "Bash(curl -s https://api.github.com/repos/aldefy/compose-skill)",
+      "Bash(curl -s https://raw.githubusercontent.com/aldefy/compose-skill/master/README.md)",
+      "Bash(curl -s https://api.github.com/repos/aldefy/compose-skill/contents/.claude-plugin)",
+      "Bash(rm -rf /tmp/compose-skill)",
+      "Bash(git clone *)",
+      "Bash(mkdir -p ~/.claude/skills)",
+      "Bash(cp -r /tmp/compose-skill/skills/compose-expert ~/.claude/skills/)",
+      "Bash(git rm *)",
+      "Bash(./gradlew assembleDebug)",
+      "Bash(git mv *)",
+      "Bash(./gradlew :app:assembleStagingDebug)",
+      "Bash(grep -v \":0$\")",
+      "Bash(xargs cat *)",
+      "Bash(./gradlew :core:ui:compileDebugKotlin)",
+      "Read(//Users/ltthuc1989/.m2/repository/com/dvm/**)",
+      "Bash(./gradlew publishLocal)",
+      "Read(//Users/ltthuc1989/.m2/repository/io/github/ltthuc/template/**)",
+      "Read(//Users/ltthuc1989/.m2/repository/io/github/ltthuc/template/ui/1.0.0/**)",
+      "Read(//Users/ltthuc1989/.m2/repository/com/**)",
+      "Bash(./gradlew :app:assembleDebug)",
+      "Bash(git ls-remote *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(git check-ignore *)",
+      "Bash(git remote *)",
+      "Bash(git add *)"
+    ],
+    "additionalDirectories": [
+      "/Users/ltthuc1989/.m2/repository/com/dvm/composetemplate",
+      "/Volumes/Entertainment/ComposeProject/template-demo"
+    ]
+  }
+}

@@ -11,3 +11,13 @@ local.properties
 
 # Project exclude paths
 /buildSrc/build/
+/build-logic/**/build/
+**/build/
+
+# Secrets & keystores (commit only *.example variants)
+security.properties
+keystore/*.properties
+keystore/*.keystore
+keystore/*.jks
+!keystore/*.properties.example
+!security.properties.example

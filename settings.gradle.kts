@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
@@ -9,6 +10,7 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        mavenLocal()
         google()
         mavenCentral()
     }
@@ -21,21 +23,41 @@ rootProject.name = "YammyDelivery"
 include(
     ":app",
     ":features:splash",
-    ":features:menu",
-    ":features:dish",
-    ":features:cart",
-    ":features:order",
-    ":features:auth",
-    ":features:profile",
-    ":features:notifications",
-    ":features:drawer",
-    ":features:drawer-api",
-    ":services:notification",
-    ":services:update",
+    ":features:home",
+    ":features:settings",
+    ":features:testcomponent",
     ":core:network",
     ":core:database",
     ":core:ui",
     ":core:utils",
     ":core:datastore",
+    ":core:ads",
+    ":core:billing",
     ":navigation"
 )
+
+val useLocalLibs: String =
+    (settings.providers.gradleProperty("useLocalLibs").orNull) ?: "true"
+
+if (useLocalLibs.toBoolean()) {
+    gradle.allprojects {
+        configurations.all {
+            resolutionStrategy.dependencySubstitution {
+                substitute(module("io.github.ltthuc.template:ui"))
+                    .using(project(":core:ui"))
+                substitute(module("io.github.ltthuc.template:utils"))
+                    .using(project(":core:utils"))
+                substitute(module("io.github.ltthuc.template:network"))
+                    .using(project(":core:network"))
+                substitute(module("io.github.ltthuc.template:datastore"))
+                    .using(project(":core:datastore"))
+                substitute(module("io.github.ltthuc.template:ads"))
+                    .using(project(":core:ads"))
+                substitute(module("io.github.ltthuc.template:billing"))
+                    .using(project(":core:billing"))
+                substitute(module("io.github.ltthuc.template:navigation"))
+                    .using(project(":navigation"))
+            }
+        }
+    }
+}

@@ -36,14 +36,7 @@ internal class NavigationViewModel @Inject constructor(
     ) {
         when (destination) {
             Destination.Back -> navController.navigateUp()
-            Destination.Main -> {
-                navController.navigate(Destination.Main.route) {
-                    val current = navController.currentBackStackEntry?.destination?.route
-                    if (current == Destination.Splash.route) {
-                        popUpTo(Destination.Splash.route) { inclusive = true }
-                    }
-                }
-            }
+            Destination.Main -> navController.navigate(Destination.Main.route)
             else -> navController.navigate(destination.route, builder)
         }
     }

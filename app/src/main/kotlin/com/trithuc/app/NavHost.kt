@@ -5,20 +5,22 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.ltthuc.navigation.api.model.Destination
-import com.ltthuc.splash.api.Splash
+import com.ltthuc.rating.api.RateHelper
+import com.ltthuc.rating.ui.RateDialogHost
 import com.ltthuc.utils.secrets.ISecretAdsKey
 
 @Composable
 fun NavHost(
     navController: NavHostController,
-    startDestination: String,
     adsKey: ISecretAdsKey,
+    rateHelper: RateHelper,
 ) {
     NavHost(
         navController = navController,
-        startDestination = startDestination,
+        startDestination = Destination.Main.route,
     ) {
-        composable(Destination.Splash.route) { Splash() }
-        composable(Destination.Main.route) { MainAppScreen(adsKey = adsKey) }
+        composable(Destination.Main.route) { MainAppScreen(adsKey = adsKey, rateHelper = rateHelper) }
     }
+    // Rate dialog overlay — observed across all destinations.
+    RateDialogHost(rateHelper)
 }

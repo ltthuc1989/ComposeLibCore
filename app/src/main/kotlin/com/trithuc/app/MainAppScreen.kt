@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.ltthuc.ads.AdBanner
 import com.ltthuc.ads.BannerType
+import com.ltthuc.rating.api.RateHelper
 import com.ltthuc.home.api.Home
 import com.ltthuc.settings.api.Settings
 import com.ltthuc.settings.R as SettingsR
@@ -36,8 +37,10 @@ import com.ltthuc.ui.base.BaseScreen
 import com.ltthuc.utils.secrets.ISecretAdsKey
 
 @Composable
-fun MainAppScreen(adsKey: ISecretAdsKey) {
+fun MainAppScreen(adsKey: ISecretAdsKey, rateHelper: RateHelper) {
     var selectedTab by rememberSaveable { mutableIntStateOf(0) }
+    // Rating count + threshold check are driven by MainActivity.onStart (lifecycle-aware,
+    // fires on every Activity foreground transition regardless of recreate). Nothing rating-related here.
 
     BaseScreen(
         topBar = {
@@ -111,3 +114,4 @@ fun MainAppScreen(adsKey: ISecretAdsKey) {
         }
     }
 }
+

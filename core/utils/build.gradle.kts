@@ -1,19 +1,21 @@
 plugins {
-    id("composetemplate.kotlin.multiplatform.library")
+    id("composetemplate.android.library")
+    id("composetemplate.android.hilt")
 }
 
-@Suppress("UnstableApiUsage")
-kotlin {
-    android {
-        namespace = "com.ltthuc.utils"
-        compileSdk = 35
-        minSdk = 24
-    }
+android {
+    namespace = "com.ltthuc.utils"
 
-    sourceSets {
-        androidMain.dependencies {
-            implementation(libs.android.core)
-            implementation(libs.timber)
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
         }
     }
 }
+
+dependencies {
+    implementation(libs.android.core)
+    implementation(libs.timber)
+}
+
+apply(from = "$rootDir/scripts/publish-lib.gradle.kts")

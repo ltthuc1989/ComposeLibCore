@@ -33,6 +33,8 @@ include(
     ":core:datastore",
     ":core:ads",
     ":core:billing",
+    ":core:rating",
+    ":core:settings-common",
     ":navigation"
 )
 
@@ -55,6 +57,10 @@ if (useLocalLibs.toBoolean()) {
                     .using(project(":core:ads"))
                 substitute(module("io.github.ltthuc.template:billing"))
                     .using(project(":core:billing"))
+                substitute(module("io.github.ltthuc.template:rating"))
+                    .using(project(":core:rating"))
+                substitute(module("io.github.ltthuc.template:settings-common"))
+                    .using(project(":core:settings-common"))
                 substitute(module("io.github.ltthuc.template:navigation"))
                     .using(project(":navigation"))
             }

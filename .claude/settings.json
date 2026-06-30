@@ -31,11 +31,30 @@
       "Bash(echo \"exit:$?\")",
       "Bash(git check-ignore *)",
       "Bash(git remote *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Read(//Users/ltthuc1989/.ssh/**)",
+      "Read(//Users/ltthuc1989/**)",
+      "Bash(ssh -T git@github.com -o StrictHostKeyChecking=no -o BatchMode=yes)",
+      "Bash(ssh-keygen -t ed25519 -C \"claudecode769@gmail.com\" -f ~/.ssh/id_ed25519 -N \"\")",
+      "Bash(chmod 600 ~/.ssh/config)",
+      "Bash(ssh -T git@github.com -o StrictHostKeyChecking=accept-new)",
+      "Bash(./gradlew :core:utils:tasks --group=\"publishing\")",
+      "Bash(./gradlew :core:utils:tasks)",
+      "Bash(./gradlew *)",
+      "Bash(gradlew *)",
+      "Bash(adb *)",
+      "Bash(ADB=*)",
+      "Bash(bash *)",
+      "Bash(sh *)"
     ],
     "additionalDirectories": [
       "/Users/ltthuc1989/.m2/repository/com/dvm/composetemplate",
-      "/Volumes/Entertainment/ComposeProject/template-demo"
-    ]
+      "/Volumes/Entertainment/ComposeProject/template-demo",
+      "/Users/ltthuc1989/.ssh"
+    ],
+    "defaultMode": "acceptEdits"
   }
 }

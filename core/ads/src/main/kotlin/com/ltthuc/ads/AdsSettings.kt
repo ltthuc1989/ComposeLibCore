@@ -13,7 +13,10 @@ import java.security.NoSuchAlgorithmException
 
 class AdsSettings {
     companion object {
-        var isSplashScreen = true
+        // Default false: apps without a splash screen don't need to manage this flag.
+        // Apps WITH a splash must set true in splash.onStart and false in splash.onStop
+        // (otherwise App Open ad will overlap the splash UI).
+        var isSplashScreen = false
         var isInterstitialShowing = false
         var isRewardAdsShowing = false
         var adPos: Int = 0

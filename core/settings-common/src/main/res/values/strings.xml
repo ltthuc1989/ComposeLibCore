@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- All settings-common strings are prefixed `csc_` to avoid collision with
+         consumer-app R.string namespace. Translations live in
+         res/values-<lang>/strings.xml. -->
+
+    <!-- Section headers -->
+    <string name="csc_support">SUPPORT</string>
+    <string name="csc_premium">✨ PREMIUM</string>
+    <string name="csc_more_apps">MORE APPS</string>
+
+    <!-- Row labels -->
+    <string name="csc_contact_feedback">Contact &amp; Feedback</string>
+    <string name="csc_share_app">Share App</string>
+    <string name="csc_rate_app">Rate App</string>
+    <string name="csc_restore_purchases">Restore Purchases</string>
+
+    <!-- Premium upsell -->
+    <string name="csc_remove_ads">Go Ad-Free!</string>
+    <string name="csc_ads_removed">Ads Removed - Thank You!</string>
+    <string name="csc_benefit_no_interruptions">No interruptions</string>
+    <string name="csc_benefit_support_development">Support development</string>
+    <string name="csc_benefit_one_time_payment">One-time payment</string>
+    <string name="csc_purchase_loading">Loading…</string>
+
+    <!-- Feedback body / share-sheet copy. %1$s = appName (auto-detected via PackageManager),
+         %2$s = packageName. Consumer can override per-call or via own res override. -->
+    <string name="csc_version_label">App Version:</string>
+    <string name="csc_feedback_subject">%1$s Feedback</string>
+    <string name="csc_share_message">Check out %1$s: https://play.google.com/store/apps/details?id=%2$s</string>
+    <string name="csc_mail_unavailable">No mail app installed.</string>
+</resources>

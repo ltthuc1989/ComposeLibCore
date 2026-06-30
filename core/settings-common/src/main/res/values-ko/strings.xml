@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="csc_support">지원</string>
+    <string name="csc_premium">✨ 프리미엄</string>
+    <string name="csc_more_apps">더 많은 앱</string>
+
+    <string name="csc_contact_feedback">문의 및 피드백</string>
+    <string name="csc_share_app">앱 공유</string>
+    <string name="csc_rate_app">앱 평가</string>
+    <string name="csc_restore_purchases">구매 복원</string>
+
+    <string name="csc_remove_ads">광고 없애기!</string>
+    <string name="csc_ads_removed">광고 제거됨 - 감사합니다!</string>
+    <string name="csc_benefit_no_interruptions">중단 없음</string>
+    <string name="csc_benefit_support_development">개발 지원</string>
+    <string name="csc_benefit_one_time_payment">1회 결제</string>
+    <string name="csc_purchase_loading">로딩 중…</string>
+
+    <string name="csc_version_label">앱 버전:</string>
+    <string name="csc_feedback_subject">%1$s 피드백</string>
+    <string name="csc_share_message">%1$s 확인하세요: https://play.google.com/store/apps/details?id=%2$s</string>
+    <string name="csc_mail_unavailable">피드백을 보내려면 설정에서 메일 계정을 구성하세요.</string>
+</resources>

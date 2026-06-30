@@ -17,6 +17,7 @@ import com.ltthuc.testcomponent.presentation.tabs.ButtonsShowcase
 import com.ltthuc.testcomponent.presentation.tabs.CardsShowcase
 import com.ltthuc.testcomponent.presentation.tabs.DialogsShowcase
 import com.ltthuc.testcomponent.presentation.tabs.InputsShowcase
+import com.ltthuc.testcomponent.presentation.tabs.IosShowcase
 import com.ltthuc.testcomponent.presentation.tabs.ToolbarsShowcase
 
 @Composable
@@ -26,7 +27,7 @@ fun TestComponentScreen(
 ) {
     val state = viewModel.state
     val tabs = remember {
-        listOf("Buttons", "Inputs", "Dialogs", "Cards", "Toolbars", "Bottom Nav")
+        listOf("Buttons", "Inputs", "Dialogs", "Cards", "Toolbars", "Bottom Nav", "iOS")
     }
 
     Column(modifier = modifier.fillMaxSize()) {
@@ -54,6 +55,7 @@ fun TestComponentScreen(
             3 -> CardsShowcase()
             4 -> ToolbarsShowcase()
             5 -> BottomNavShowcase()
+            6 -> IosShowcase()
         }
     }
 }

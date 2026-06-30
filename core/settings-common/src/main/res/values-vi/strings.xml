@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="csc_support">HỖ TRỢ</string>
+    <string name="csc_premium">✨ CAO CẤP</string>
+    <string name="csc_more_apps">THÊM ỨNG DỤNG</string>
+
+    <string name="csc_contact_feedback">Liên Hệ &amp; Phản Hồi</string>
+    <string name="csc_share_app">Chia Sẻ Ứng Dụng</string>
+    <string name="csc_rate_app">Đánh Giá Ứng Dụng</string>
+    <string name="csc_restore_purchases">Khôi Phục Mua Hàng</string>
+
+    <string name="csc_remove_ads">Loại Bỏ Quảng Cáo!</string>
+    <string name="csc_ads_removed">Đã Xóa Quảng Cáo - Cảm Ơn Bạn!</string>
+    <string name="csc_benefit_no_interruptions">Không bị gián đoạn</string>
+    <string name="csc_benefit_support_development">Hỗ trợ phát triển</string>
+    <string name="csc_benefit_one_time_payment">Thanh toán một lần</string>
+    <string name="csc_purchase_loading">Đang tải…</string>
+
+    <string name="csc_version_label">Phiên Bản Ứng Dụng:</string>
+    <string name="csc_feedback_subject">Phản Hồi %1$s</string>
+    <string name="csc_share_message">Hãy xem %1$s: https://play.google.com/store/apps/details?id=%2$s</string>
+    <string name="csc_mail_unavailable">Vui lòng cấu hình tài khoản email trong Cài Đặt để gửi phản hồi.</string>
+</resources>

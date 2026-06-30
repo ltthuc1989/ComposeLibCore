@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="csc_support">サポート</string>
+    <string name="csc_premium">✨ プレミアム</string>
+    <string name="csc_more_apps">その他のアプリ</string>
+
+    <string name="csc_contact_feedback">お問い合わせ・フィードバック</string>
+    <string name="csc_share_app">アプリを共有</string>
+    <string name="csc_rate_app">アプリを評価</string>
+    <string name="csc_restore_purchases">購入を復元</string>
+
+    <string name="csc_remove_ads">広告なしに!</string>
+    <string name="csc_ads_removed">広告を削除しました - ありがとうございます!</string>
+    <string name="csc_benefit_no_interruptions">中断なし</string>
+    <string name="csc_benefit_support_development">開発をサポート</string>
+    <string name="csc_benefit_one_time_payment">一回限りの支払い</string>
+    <string name="csc_purchase_loading">読み込み中…</string>
+
+    <string name="csc_version_label">アプリバージョン:</string>
+    <string name="csc_feedback_subject">%1$s フィードバック</string>
+    <string name="csc_share_message">%1$s をチェック! https://play.google.com/store/apps/details?id=%2$s</string>
+    <string name="csc_mail_unavailable">フィードバックを送信するには、設定でメールアカウントを設定してください。</string>
+</resources>

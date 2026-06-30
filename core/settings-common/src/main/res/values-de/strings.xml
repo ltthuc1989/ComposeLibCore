@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="csc_support">UNTERSTÜTZUNG</string>
+    <string name="csc_premium">✨ PREMIUM</string>
+    <string name="csc_more_apps">WEITERE APPS</string>
+
+    <string name="csc_contact_feedback">Kontakt &amp; Feedback</string>
+    <string name="csc_share_app">App teilen</string>
+    <string name="csc_rate_app">App bewerten</string>
+    <string name="csc_restore_purchases">Kauf wiederherstellen</string>
+
+    <string name="csc_remove_ads">Werbefrei werden!</string>
+    <string name="csc_ads_removed">Werbung entfernt - Vielen Dank!</string>
+    <string name="csc_benefit_no_interruptions">Keine Unterbrechungen</string>
+    <string name="csc_benefit_support_development">Entwicklung unterstützen</string>
+    <string name="csc_benefit_one_time_payment">Einmalige Zahlung</string>
+    <string name="csc_purchase_loading">Lädt…</string>
+
+    <string name="csc_version_label">App-Version:</string>
+    <string name="csc_feedback_subject">%1$s Feedback</string>
+    <string name="csc_share_message">Schau dir %1$s an: https://play.google.com/store/apps/details?id=%2$s</string>
+    <string name="csc_mail_unavailable">Bitte konfigurieren Sie ein E-Mail-Konto in den Einstellungen, um Feedback zu senden.</string>
+</resources>

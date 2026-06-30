@@ -34,6 +34,7 @@ dependencies {
     implementation(libs.template.datastore)
     implementation(libs.template.ads)
     implementation(libs.template.billing)
+    implementation(libs.template.rating)
     implementation(libs.template.navigation)
     implementation(projects.core.database)
     implementation(projects.features.splash)

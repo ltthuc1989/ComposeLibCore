@@ -22,6 +22,7 @@ lottie = "6.6.0"
 leakCanary = "2.14"
 firebaseBom = "33.7.0"
 googleServices = "4.4.2"
+firebaseCrashlyticsPlugin = "3.0.2"
 mapsPlay = "19.0.0"
 mapsKtx = "5.1.1"
 location = "21.3.0"
@@ -34,6 +35,8 @@ timber = "5.0.1"
 googleAds = "23.6.0"
 googleUmp = "3.0.0"
 googleBilling = "7.1.1"
+googlePlayReview = "2.0.2"
+glance = "1.1.1"
 junit = "4.13.2"
 mockk = "1.13.13"
 turbine = "1.1.0"
@@ -47,7 +50,9 @@ template-network = { module = "io.github.ltthuc.template:network", version.ref =
 template-datastore = { module = "io.github.ltthuc.template:datastore", version.ref = "templateLibVersion" }
 template-ads = { module = "io.github.ltthuc.template:ads", version.ref = "templateLibVersion" }
 template-billing = { module = "io.github.ltthuc.template:billing", version.ref = "templateLibVersion" }
+template-rating = { module = "io.github.ltthuc.template:rating", version.ref = "templateLibVersion" }
 template-navigation = { module = "io.github.ltthuc.template:navigation", version.ref = "templateLibVersion" }
+template-settings-common = { module = "io.github.ltthuc.template:settings-common", version.ref = "templateLibVersion" }
 
 plugin-androidGradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 plugin-kotlinGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -67,6 +72,7 @@ timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 google-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "googleAds" }
 google-ump = { module = "com.google.android.ump:user-messaging-platform", version.ref = "googleUmp" }
 google-billing = { module = "com.android.billingclient:billing-ktx", version.ref = "googleBilling" }
+google-play-review = { module = "com.google.android.play:review", version.ref = "googlePlayReview" }
 
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
@@ -105,10 +111,15 @@ hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.re
 
 datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
 
+glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glance" }
+glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "glance" }
+
 navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-messaging =  { module = "com.google.firebase:firebase-messaging" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
 
 google-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "mapsPlay" }
 google-mapsKtx = { module = "com.google.maps.android:maps-ktx", version.ref = "mapsKtx" }
@@ -138,4 +149,5 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsPlugin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

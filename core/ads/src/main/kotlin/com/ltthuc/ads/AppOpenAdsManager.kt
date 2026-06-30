@@ -30,9 +30,17 @@ class AppOpenAdsManager(
     private var isAdShowing = false
     private var loadTime: Long = 0
     private var currentActivity: Activity? = null
+    private var registered = false
 
     fun setAppOpen(appOpen: AppOpen) {
         if (AdsSettings.disableAd || AdsSettings.disableOpenAds) return
+        if (registered) {
+            // Allow callback override on subsequent calls (e.g. base Activity replacing
+            // a NoOp default installed earlier from Application).
+            this.appOpen = appOpen
+            return
+        }
+        registered = true
         app.registerActivityLifecycleCallbacks(this)
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
         this.appOpen = appOpen

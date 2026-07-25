@@ -154,7 +154,17 @@ fun IosLargeTitleScaffold(
 @Composable
 fun rememberCollapseProgress(scrollState: ScrollState, thresholdDp: Dp = 44.dp): Float {
     val thresholdPx = with(LocalDensity.current) { thresholdDp.toPx() }
-    return if (thresholdPx <= 0f) 1f else (scrollState.value / thresholdPx).coerceIn(0f, 1f)
+    // derivedStateOf is essential, not an optimization: reading scrollState.value directly in
+    // composition subscribes the CALLER to every scroll pixel, so the whole scaffold body (all
+    // input fields) recomposes for the entire scroll range — 60-120×/s during a fling. The
+    // coerced 0..1 result only changes over the first `thresholdDp`, so derivedStateOf stops
+    // recomposing once the title is fully collapsed. Mirrors the LazyListState overload below.
+    val progress by remember(scrollState, thresholdPx) {
+        derivedStateOf {
+            if (thresholdPx <= 0f) 1f else (scrollState.value / thresholdPx).coerceIn(0f, 1f)
+        }
+    }
+    return progress
 }
 
 /**

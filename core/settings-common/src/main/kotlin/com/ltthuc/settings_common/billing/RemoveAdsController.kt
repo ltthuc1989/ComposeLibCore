@@ -9,6 +9,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import com.ltthuc.ads.AdsSettings
 import com.ltthuc.billing.api.BillingApi
+import com.ltthuc.billing.api.OrdersID
 import com.ltthuc.billing.api.model.ProductInfo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -67,7 +68,21 @@ interface RemoveAdsController {
     fun release()
 
     companion object {
-        const val DEFAULT_PRODUCT_ID = "products_remove_ads"
+        /**
+         * The shared Android Remove-Ads SKU, aliased to [OrdersID.REMOVE_ADS] so this library and
+         * template-billing cannot disagree.
+         *
+         * This was previously the literal `"products_remove_ads"` (plural) while
+         * `OrdersID.REMOVE_ADS` is `"product_remove_ads"` (singular). Because
+         * [RemoveAdsControllerModule] falls back here when a consumer's `ISecretBillingKey`
+         * supplies no `productIds`, that mismatch silently resolved to a product no Play listing
+         * contains: `queryProducts` returned nothing and `CommonPremiumSection` auto-hid, which
+         * reads as "billing is broken" rather than "wrong SKU".
+         *
+         * Consumers should still pass [OrdersID.REMOVE_ADS] explicitly — this alias only makes
+         * the fallback safe.
+         */
+        const val DEFAULT_PRODUCT_ID = OrdersID.REMOVE_ADS
         const val PRODUCT_QUERY_TIMEOUT_MS = 12_000L
 
         fun create(

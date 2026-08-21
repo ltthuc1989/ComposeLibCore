@@ -23,6 +23,8 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
     implementation(libs.lifecycle.runtime)
+    // ProcessLifecycleOwner — the rating cadence counts process foregrounds, not Activity creations.
+    api(libs.lifecycle.process)
     implementation(libs.google.play.review)
 }
 

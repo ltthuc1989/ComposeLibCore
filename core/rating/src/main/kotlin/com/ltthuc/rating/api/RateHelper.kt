@@ -6,10 +6,13 @@ import com.ltthuc.rating.impl.ReviewLauncher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -19,6 +22,7 @@ class RateHelper @Inject internal constructor(
     private val reviewLauncher: ReviewLauncher,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val mutex = Mutex()
     private var config = RateConfig()
     private var isShowing = false
     private var pendingComplete: (() -> Unit)? = null
@@ -40,6 +44,33 @@ class RateHelper @Inject internal constructor(
             launchReviewIfThreshold(activity, onComplete)
         } else {
             showCustomDialogIfThreshold(onComplete)
+        }
+    }
+
+    /**
+     * Records one event on [config] and then, if the threshold is met, shows the prompt — as one
+     * atomic step.
+     *
+     * Apps with more than one trigger (app-open cadence, first-save, post-purchase) each need their
+     * own [RateConfig.key], but this class holds a SINGLE mutable [config]. Two triggers overlapping
+     * would otherwise interleave `setConfig` / `increaseCount` / `requestRate` and count against
+     * each other's key. Routing every trigger through here serialises them.
+     *
+     * The count is written before [delayMs] elapses, mirroring how a launch counter must survive the
+     * user quitting during the delay; only the presentation waits.
+     */
+    suspend fun recordAndRequest(
+        activity: Activity,
+        config: RateConfig,
+        delayMs: Long = DEFAULT_PRESENT_DELAY_MS,
+        onComplete: () -> Unit = {},
+    ) {
+        mutex.withLock {
+            // autoIncreaseCount would double-count on top of the explicit increaseCount below.
+            setConfig(config.copy(autoIncreaseCount = false))
+            increaseCount()
+            if (delayMs > 0) delay(delayMs)
+            requestRate(activity, onComplete)
         }
     }
 
@@ -96,5 +127,11 @@ class RateHelper @Inject internal constructor(
         } else {
             onComplete()
         }
+    }
+
+    companion object {
+        /** Lets the window settle before the prompt appears; Play's review flow needs a resumed
+         *  Activity, which a cold launch does not yet have when the trigger fires. */
+        const val DEFAULT_PRESENT_DELAY_MS = 1_000L
     }
 }

@@ -82,8 +82,8 @@ internal class BillingManagerImpl @Inject constructor(
     private val client: BillingClient = BillingClient.newBuilder(context)
         .setListener(purchasesUpdatedListener)
         .enablePendingPurchases(
-            // Note: .enableAutoAcknowledge() requires Play Billing Library v8+.
-            // We're on v7.1.1 so we acknowledge manually in autoAcknowledgePurchases().
+            // Acknowledgement stays manual (autoAcknowledgePurchases()) — v9 still has no
+            // auto-ack, and manual ack keeps the double-ack race guard in one place.
             PendingPurchasesParams.newBuilder().enableOneTimeProducts().build(),
         )
         .build()

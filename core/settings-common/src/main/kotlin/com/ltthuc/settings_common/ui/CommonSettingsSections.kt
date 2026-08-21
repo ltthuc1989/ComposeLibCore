@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -156,7 +157,13 @@ fun CommonPremiumSection(
     if (productUnavailable) return
 
     Column(modifier) {
-        if (hasRemovedAds) SectionHeader(sectionTitle ?: stringResource(R.string.csc_premium))
+        // The upsell card carries its own headline, so it gets no SectionHeader — but it still
+        // needs the header's top gap, or it sits flush against the section above it.
+        if (hasRemovedAds) {
+            SectionHeader(sectionTitle ?: stringResource(R.string.csc_premium))
+        } else {
+            Spacer(Modifier.height(SectionGap))
+        }
         SettingsCard {
             if (hasRemovedAds) {
                 PurchasedRow(

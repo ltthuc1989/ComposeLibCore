@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_update_downloading">Downloading update…</string>
+    <string name="app_update_ready">Update ready to install</string>
+    <string name="app_update_restart">Restart</string>
+</resources>

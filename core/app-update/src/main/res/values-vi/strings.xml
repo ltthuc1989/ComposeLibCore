@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_update_downloading">Đang tải bản cập nhật…</string>
+    <string name="app_update_ready">Bản cập nhật đã sẵn sàng cài đặt</string>
+    <string name="app_update_restart">Khởi động lại</string>
+</resources>

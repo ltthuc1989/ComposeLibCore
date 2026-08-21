@@ -34,6 +34,7 @@ include(
     ":core:ads",
     ":core:billing",
     ":core:rating",
+    ":core:app-update",
     ":core:settings-common",
     ":navigation"
 )

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_update_downloading">アップデートをダウンロード中…</string>
+    <string name="app_update_ready">アップデートをインストールできます</string>
+    <string name="app_update_restart">再起動</string>
+</resources>

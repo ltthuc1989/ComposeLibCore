@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_update_downloading">업데이트 다운로드 중…</string>
+    <string name="app_update_ready">업데이트 설치 준비 완료</string>
+    <string name="app_update_restart">다시 시작</string>
+</resources>

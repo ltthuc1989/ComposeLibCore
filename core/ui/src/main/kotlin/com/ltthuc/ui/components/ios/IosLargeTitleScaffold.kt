@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
@@ -135,9 +136,12 @@ fun IosLargeTitleScaffold(
                     modifier = Modifier.weight(1f).alpha(progress),
                 )
 
-                // Trailing slot — actions or inset. Min 44dp balances the leading slot.
+                // Trailing slot — actions or inset. Min 44dp balances the leading slot, and the
+                // 16dp end padding mirrors the leading spacer so an action is inset from the edge
+                // rather than flush against it. widthIn stays OUTSIDE the padding, so an empty
+                // slot is still exactly 44dp and the title stays centred.
                 Row(
-                    modifier = Modifier.widthIn(min = 44.dp),
+                    modifier = Modifier.widthIn(min = 44.dp).padding(end = 16.dp),
                     horizontalArrangement = Arrangement.End,
                     verticalAlignment = Alignment.CenterVertically,
                     content = actions,

@@ -44,6 +44,10 @@ object DependencyInjectionAds {
 
     @Singleton
     @Provides
+    fun providesRewardedGate(manager: RewardedAdsManager): RewardedGate = RewardedGate.from(manager)
+
+    @Singleton
+    @Provides
     fun providesGoogleMobileAdsConsentManager(
         @ApplicationContext context: Context,
     ): GoogleMobileAdsConsentManager = GoogleMobileAdsConsentManager(context)

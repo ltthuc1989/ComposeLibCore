@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ads_hashed_id_test">96787287227250A15AC1601146FA1593</string>
+    <string name="ads_rewarded_watch">Watch Ad</string>
+    <string name="ads_rewarded_not_now">Not Now</string>
+    <string name="ads_rewarded_remove_ads">Remove Ads</string>
 </resources>

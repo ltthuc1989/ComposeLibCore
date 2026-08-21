@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_rewarded_watch">Assistir anúncio</string>
+    <string name="ads_rewarded_not_now">Agora não</string>
+    <string name="ads_rewarded_remove_ads">Remover anúncios</string>
+</resources>

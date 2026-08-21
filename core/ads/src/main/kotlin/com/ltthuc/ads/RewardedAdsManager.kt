@@ -21,6 +21,14 @@ class RewardedAdsManager(
     private val tag = "RewardedAdsManager"
     private var rewardedAd: RewardedAd? = null
 
+    /**
+     * True when a rewarded ad is loaded and showable right now. Callers that gate a feature behind
+     * a reward MUST check this before offering the user an opt-in prompt, so the app never promises
+     * an ad it cannot serve (AdMob "Rewards implementation - User choice").
+     */
+    val isRewardedAdReady: Boolean
+        get() = rewardedAd != null && !AdsSettings.disableAd && !AdsSettings.isRewardAdsShowing
+
     private fun loadRewardedAd() {
         if (AdsSettings.disableAd) return
         RewardedAd.load(

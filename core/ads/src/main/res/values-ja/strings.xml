@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_rewarded_watch">広告を見る</string>
+    <string name="ads_rewarded_not_now">今はしない</string>
+    <string name="ads_rewarded_remove_ads">広告を削除</string>
+</resources>

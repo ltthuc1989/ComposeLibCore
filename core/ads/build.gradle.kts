@@ -89,6 +89,8 @@ dependencies {
     implementation(libs.google.ump)
     implementation(libs.lifecycle.runtime)
     implementation(libs.lifecycle.process)
+
+    testImplementation(libs.bundles.testing)
 }
 
 apply(from = "$rootDir/scripts/publish-lib.gradle.kts")

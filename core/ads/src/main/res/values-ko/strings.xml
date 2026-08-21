@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ads_rewarded_watch">광고 보기</string>
+    <string name="ads_rewarded_not_now">나중에</string>
+    <string name="ads_rewarded_remove_ads">광고 제거</string>
+</resources>

@@ -12,13 +12,16 @@ internal object AppUpdatePolicy {
 
     fun shouldOffer(
         stalenessDays: Int?,
+        updatePriority: Int,
         history: PromptHistory,
         nowMillis: Long,
         config: AppUpdateConfig,
     ): Boolean {
-        // Play reports null until the update has been served to this device for a day. Treating
-        // that as 0 would offer instantly and defeat minStalenessDays.
-        if ((stalenessDays ?: 0) < config.minStalenessDays) return false
+        // Play reports null for about the first day after it starts serving a release, so null
+        // counts as 0 — which means a non-zero minStalenessDays hides a fresh release for exactly
+        // that long. A high-priority release skips the wait outright.
+        val urgent = updatePriority >= config.priorityBypassesStaleness
+        if (!urgent && (stalenessDays ?: 0) < config.minStalenessDays) return false
         if (history.count == 0) return true
         if (history.count >= config.maxPromptsPerVersion) return false
         return nowMillis - history.atMillis >= config.remindAfterDays * MILLIS_PER_DAY

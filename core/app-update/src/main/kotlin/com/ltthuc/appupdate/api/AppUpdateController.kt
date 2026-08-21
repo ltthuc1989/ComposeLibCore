@@ -73,15 +73,30 @@ class AppUpdateController @Inject internal constructor(
             _state.value = AppUpdateState.ReadyToInstall
             return
         }
-        if (info.updateAvailability() != UpdateAvailability.UPDATE_AVAILABLE) return
-        if (!info.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) return
+        if (info.updateAvailability() != UpdateAvailability.UPDATE_AVAILABLE) {
+            Log.d(TAG, "no update available (availability=${info.updateAvailability()})")
+            return
+        }
+        if (!info.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
+            Log.d(TAG, "flexible update not allowed for this release")
+            return
+        }
 
         val version = info.availableVersionCode()
+        val staleness = info.clientVersionStalenessDays()
+        val history = store.history(version)
         val offer = AppUpdatePolicy.shouldOffer(
-            stalenessDays = info.clientVersionStalenessDays(),
-            history = store.history(version),
+            stalenessDays = staleness,
+            updatePriority = info.updatePriority(),
+            history = history,
             nowMillis = nowMillis,
             config = config,
+        )
+        // Every "why is nothing happening" question about this feature is answered by this line.
+        Log.d(
+            TAG,
+            "v$version offer=$offer staleness=$staleness priority=${info.updatePriority()} " +
+                "prompts=${history.count} config=$config",
         )
         if (!offer) return
 

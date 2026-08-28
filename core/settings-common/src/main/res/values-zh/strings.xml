@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="csc_support">支持</string>
+    <string name="csc_premium">✨ 高级版</string>
+    <string name="csc_more_apps">更多应用</string>
+
+    <string name="csc_contact_feedback">联系与反馈</string>
+    <string name="csc_share_app">分享应用</string>
+    <string name="csc_rate_app">评价应用</string>
+    <string name="csc_restore_purchases">恢复购买</string>
+
+    <string name="csc_remove_ads">去除广告！</string>
+    <string name="csc_ads_removed">广告已移除 - 感谢支持！</string>
+    <string name="csc_benefit_no_interruptions">无干扰</string>
+    <string name="csc_benefit_support_development">支持开发</string>
+    <string name="csc_benefit_one_time_payment">一次性付款</string>
+    <string name="csc_purchase_loading">加载中…</string>
+
+    <string name="csc_version_label">应用版本：</string>
+    <string name="csc_feedback_subject">%1$s 反馈</string>
+    <string name="csc_share_message">快来看看 %1$s：https://play.google.com/store/apps/details?id=%2$s</string>
+    <string name="csc_mail_unavailable">未安装邮件应用。</string>
+</resources>

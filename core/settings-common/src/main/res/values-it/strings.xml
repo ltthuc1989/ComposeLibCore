@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="csc_support">ASSISTENZA</string>
+    <string name="csc_premium">✨ PREMIUM</string>
+    <string name="csc_more_apps">ALTRE APP</string>
+
+    <string name="csc_contact_feedback">Contatti e feedback</string>
+    <string name="csc_share_app">Condividi app</string>
+    <string name="csc_rate_app">Valuta app</string>
+    <string name="csc_restore_purchases">Ripristina acquisti</string>
+
+    <string name="csc_remove_ads">Passa senza pubblicità!</string>
+    <string name="csc_ads_removed">Pubblicità rimossa - Grazie!</string>
+    <string name="csc_benefit_no_interruptions">Nessuna interruzione</string>
+    <string name="csc_benefit_support_development">Sostieni lo sviluppo</string>
+    <string name="csc_benefit_one_time_payment">Pagamento unico</string>
+    <string name="csc_purchase_loading">Caricamento…</string>
+
+    <string name="csc_version_label">Versione app:</string>
+    <string name="csc_feedback_subject">Feedback su %1$s</string>
+    <string name="csc_share_message">Dai un\'occhiata a %1$s: https://play.google.com/store/apps/details?id=%2$s</string>
+    <string name="csc_mail_unavailable">Nessuna app di posta installata.</string>
+</resources>

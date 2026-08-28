@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="csc_support">ONDERSTEUNING</string>
+    <string name="csc_premium">✨ PREMIUM</string>
+    <string name="csc_more_apps">MEER APPS</string>
+
+    <string name="csc_contact_feedback">Contact &amp; feedback</string>
+    <string name="csc_share_app">App delen</string>
+    <string name="csc_rate_app">App beoordelen</string>
+    <string name="csc_restore_purchases">Aankopen herstellen</string>
+
+    <string name="csc_remove_ads">Advertentievrij!</string>
+    <string name="csc_ads_removed">Advertenties verwijderd - Bedankt!</string>
+    <string name="csc_benefit_no_interruptions">Geen onderbrekingen</string>
+    <string name="csc_benefit_support_development">Ondersteun de ontwikkeling</string>
+    <string name="csc_benefit_one_time_payment">Eenmalige betaling</string>
+    <string name="csc_purchase_loading">Laden…</string>
+
+    <string name="csc_version_label">App-versie:</string>
+    <string name="csc_feedback_subject">%1$s Feedback</string>
+    <string name="csc_share_message">Bekijk %1$s: https://play.google.com/store/apps/details?id=%2$s</string>
+    <string name="csc_mail_unavailable">Geen e-mailapp geïnstalleerd.</string>
+</resources>

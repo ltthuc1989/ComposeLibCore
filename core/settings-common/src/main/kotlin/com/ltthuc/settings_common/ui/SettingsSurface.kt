@@ -80,6 +80,12 @@ fun SettingsRowDivider(modifier: Modifier = Modifier) {
     )
 }
 
+/**
+ * Vertical gap a [SectionHeader] contributes above its card — the grouped-list
+ * section rhythm. Exposed so header-less sections can reproduce it.
+ */
+val SectionGap = 24.dp
+
 @Composable
 fun SectionHeader(text: String, modifier: Modifier = Modifier) {
     val p = palette()
@@ -87,7 +93,7 @@ fun SectionHeader(text: String, modifier: Modifier = Modifier) {
         text = text,
         color = p.labelSecondary,
         fontSize = 13.sp,
-        modifier = modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp, bottom = 6.dp),
+        modifier = modifier.padding(start = 16.dp, end = 16.dp, top = SectionGap, bottom = 6.dp),
     )
 }
 

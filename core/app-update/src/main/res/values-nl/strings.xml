@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_update_downloading">Update downloaden…</string>
+    <string name="app_update_ready">Update klaar om te installeren</string>
+    <string name="app_update_restart">Opnieuw opstarten</string>
+</resources>

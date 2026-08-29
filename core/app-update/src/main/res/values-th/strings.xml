@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_update_downloading">กำลังดาวน์โหลดการอัปเดต…</string>
+    <string name="app_update_ready">การอัปเดตพร้อมติดตั้งแล้ว</string>
+    <string name="app_update_restart">รีสตาร์ท</string>
+</resources>

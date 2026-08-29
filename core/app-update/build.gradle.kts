@@ -23,6 +23,7 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.compose.material3)
     implementation(libs.lifecycle.runtime)
+    implementation(libs.lifecycle.runtime.compose)
     // ProcessLifecycleOwner — the check runs per process foreground, not per Activity creation.
     api(libs.lifecycle.process)
     api(libs.google.play.app.update)

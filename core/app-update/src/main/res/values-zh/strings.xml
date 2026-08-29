@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_update_downloading">正在下载更新…</string>
+    <string name="app_update_ready">更新已准备好安装</string>
+    <string name="app_update_restart">重启</string>
+</resources>

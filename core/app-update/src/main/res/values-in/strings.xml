@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_update_downloading">Mengunduh pembaruan…</string>
+    <string name="app_update_ready">Pembaruan siap dipasang</string>
+    <string name="app_update_restart">Mulai ulang</string>
+</resources>
